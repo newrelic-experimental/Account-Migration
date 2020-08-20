@@ -1,0 +1,93 @@
+{
+  "lastUpdated": "Mon Aug 10 2020 15:59:13 GMT-0400 (EDT)",
+  "projectName": "nr1-account-migration",
+  "projectUrl": "https://github.com/newrelic-experimental/nr1-account-migration",
+  "includeDev": true,
+  "dependencies": {
+    "axios@0.19.0": {
+      "name": "axios",
+      "version": "0.19.0",
+      "range": "^0.19.0",
+      "licenses": "MIT",
+      "repoUrl": "https://github.com/axios/axios",
+      "versionedRepoUrl": "https://github.com/axios/axios/tree/v0.19.0",
+      "licenseFile": "node_modules/axios/LICENSE",
+      "licenseUrl": "https://github.com/axios/axios/blob/v0.19.0/LICENSE",
+      "licenseTextSource": "file",
+      "publisher": "Matt Zabriskie"
+    },
+    "lodash@4.17.19": {
+      "name": "lodash",
+      "version": "4.17.19",
+      "range": "^4.17.19",
+      "licenses": "MIT",
+      "repoUrl": "https://github.com/lodash/lodash",
+      "versionedRepoUrl": "https://github.com/lodash/lodash/tree/v4.17.19",
+      "licenseFile": "node_modules/lodash/LICENSE",
+      "licenseUrl": "https://github.com/lodash/lodash/blob/v4.17.19/LICENSE",
+      "licenseTextSource": "file",
+      "publisher": "John-David Dalton",
+      "email": "john.david.dalton@gmail.com"
+    },
+    "prop-types@15.7.2": {
+      "name": "prop-types",
+      "version": "15.7.2",
+      "range": "^15.6.2",
+      "licenses": "MIT",
+      "repoUrl": "https://github.com/facebook/prop-types",
+      "versionedRepoUrl": "https://github.com/facebook/prop-types/tree/v15.7.2",
+      "licenseFile": "node_modules/prop-types/LICENSE",
+      "licenseUrl": "https://github.com/facebook/prop-types/blob/v15.7.2/LICENSE",
+      "licenseTextSource": "file"
+    },
+    "react-dom@16.9.0": {
+      "name": "react-dom",
+      "version": "16.9.0",
+      "range": "^16.6.3",
+      "licenses": "MIT",
+      "repoUrl": "https://github.com/facebook/react",
+      "versionedRepoUrl": "https://github.com/facebook/react/tree/v16.9.0",
+      "licenseFile": "node_modules/react-dom/LICENSE",
+      "licenseUrl": "https://github.com/facebook/react/blob/v16.9.0/LICENSE",
+      "licenseTextSource": "file"
+    },
+    "react@16.9.0": {
+      "name": "react",
+      "version": "16.9.0",
+      "range": "^16.6.3",
+      "licenses": "MIT",
+      "repoUrl": "https://github.com/facebook/react",
+      "versionedRepoUrl": "https://github.com/facebook/react/tree/v16.9.0",
+      "licenseFile": "node_modules/react/LICENSE",
+      "licenseUrl": "https://github.com/facebook/react/blob/v16.9.0/LICENSE",
+      "licenseTextSource": "file"
+    },
+    "semantic-ui-css@2.4.1": {
+      "name": "semantic-ui-css",
+      "version": "2.4.1",
+      "range": "^2.4.1",
+      "licenses": "MIT",
+      "repoUrl": "https://github.com/Semantic-Org/Semantic-UI-CSS",
+      "versionedRepoUrl": "https://github.com/Semantic-Org/Semantic-UI-CSS/tree/v2.4.1",
+      "licenseFile": "node_modules/semantic-ui-css/LICENSE",
+      "licenseUrl": "https://github.com/Semantic-Org/Semantic-UI-CSS/blob/v2.4.1/LICENSE",
+      "licenseTextSource": "file",
+      "publisher": "Jack Lukic",
+      "email": "jack@semantic-ui.com"
+    },
+    "semantic-ui-react@0.88.2": {
+      "name": "semantic-ui-react",
+      "version": "0.88.2",
+      "range": "^0.88.2",
+      "licenses": "MIT",
+      "repoUrl": "https://github.com/Semantic-Org/Semantic-UI-React",
+      "versionedRepoUrl": "https://github.com/Semantic-Org/Semantic-UI-React/tree/v0.88.2",
+      "licenseFile": "node_modules/semantic-ui-react/LICENSE.md",
+      "licenseUrl": "https://github.com/Semantic-Org/Semantic-UI-React/blob/v0.88.2/LICENSE.md",
+      "licenseTextSource": "file",
+      "publisher": "Levi Thomason",
+      "email": "me@levithomason.com"
+    }
+  },
+  "devDependencies": {}
+}
