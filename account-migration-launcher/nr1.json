@@ -1,0 +1,7 @@
+{
+  "schemaType": "LAUNCHER",
+  "id": "account-migration-launcher",
+  "description": "Move entities between accounts",
+  "displayName": "Account Migration",
+  "rootNerdletId": "account-migration-nerdlet"
+}

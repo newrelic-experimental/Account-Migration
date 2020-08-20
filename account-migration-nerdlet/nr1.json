@@ -1,0 +1,6 @@
+{
+  "schemaType": "NERDLET",
+  "id": "account-migration-nerdlet",
+  "description": "Move entities between accounts",
+  "displayName": "Account Migration"
+}

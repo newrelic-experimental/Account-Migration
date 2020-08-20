@@ -1,0 +1,24 @@
+{
+  "private": true,
+  "name": "account-migration",
+  "description": "Nerdpack account-migration",
+  "version": "0.1.1",
+  "scripts": {
+    "start": "nr1 nerdpack:serve",
+    "test": "exit 0"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "lodash": "^4.17.19",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.88.2"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "not ie < 11",
+    "not dead"
+  ]
+}
