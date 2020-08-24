@@ -188,6 +188,7 @@ export default class Dashboard extends React.Component {
     this.setState({ dashboardsToMove: dCollection });
   }
 
+  //TODO: support for preserving widget filters/facet links
   async getExistingDash(id) {
     const { sourceAdmin, destAccountId } = this.props;
     let dash = null;
@@ -199,6 +200,7 @@ export default class Dashboard extends React.Component {
     }).then((resp) => {
       if (resp.status == 200) {
         dash = resp.data.dashboard;
+        dash.grid_column_count = 12;
         for (let widget of dash.widgets) {
           widget.account_id = Number(destAccountId)
         }

@@ -68,6 +68,8 @@ Visit [https://one.newrelic.com](https://one.newrelic.com), navigate to the Nerd
 
 ### Dashboards
 * Requires source and destination admin keys, destination account ID.
+* Any widget facet links/filters will need to be updated.
+* Moves dashboards in NR1 format (12 column) versus Insights format (3 column).
 * Tabbed dashboards are currently not supported.
 * Status column represents that dashboard titles exist in both accounts.
 
