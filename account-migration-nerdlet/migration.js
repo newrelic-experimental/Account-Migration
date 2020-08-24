@@ -96,6 +96,8 @@ export default class Migration extends React.Component {
               <p>Move dashboards from one account to another.</p>
               <ul style={{paddingLeft: '20px'}}>
                 <li>Requires source admin key & account ID, destination account ID.</li>
+                <li>Any widget facet links/filters will need to be updated.</li>
+                <li>Moves dashboards in NR1 format (12 column) versus Insights format (3 column).</li>
                 <li>Tabbed dashboards are currently not supported.</li>
                 <li>Status column is derived from the assumption that dashboard title exists in both source and destination accounts.</li>
               </ul>
