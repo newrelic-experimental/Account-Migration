@@ -188,7 +188,6 @@ export default class Dashboard extends React.Component {
     this.setState({ dashboardsToMove: dCollection });
   }
 
-  //TODO: support for preserving widget filters/facet links
   async getExistingDash(id) {
     const { sourceAdmin, destAccountId } = this.props;
     let dash = null;
@@ -200,9 +199,14 @@ export default class Dashboard extends React.Component {
     }).then((resp) => {
       if (resp.status == 200) {
         dash = resp.data.dashboard;
-        dash.grid_column_count = 12;
         for (let widget of dash.widgets) {
           widget.account_id = Number(destAccountId)
+          for (let key in widget.layout) { //check if insights or NR1 column layout
+            if (widget.layout[key] > 3) {
+              dash.grid_column_count = 12;
+              break;
+            }
+          }
         }
       }
     }).catch((error) => {
@@ -214,7 +218,7 @@ export default class Dashboard extends React.Component {
 
   async createNewDash(dashboard) {
     const { destAdmin } = this.props;
-    let newId = null;
+    let targetDash = null;
 
     await axios({
       method: 'post',
@@ -223,13 +227,33 @@ export default class Dashboard extends React.Component {
       data: {"dashboard": dashboard}
     }).then((resp) => {
       if (resp.status == 200) {
-        newId = resp.data.dashboard.id;
+        targetDash = resp.data.dashboard;
       }
     }).catch((error) => {
       console.debug(error);
     })
 
-    return newId;
+    return targetDash;
+  }
+
+  async updateFacetLink(d) {
+    const { destAdmin } = this.props;
+    let updatedLink = null;
+
+    await axios({
+      method: 'put',
+      url: 'https://api.newrelic.com/v2/dashboards/' + d.id.toString() + '.json',
+      headers: { 'X-Api-Key': destAdmin, 'Content-Type': 'application/json' },
+      data: {"dashboard": d}
+    }).then((resp) => {
+      if (resp.status == 200) {
+        updatedLink = resp.data.dashboard;
+      }
+    }).catch((error) => {
+      console.debug(error);
+    })
+
+    return updatedLink;
   }
 
   async moveDashboards(){
@@ -250,8 +274,19 @@ export default class Dashboard extends React.Component {
         let dashCreation = {"dashboard": {name: existingDash.title, status: "Failed"}}
         runResult.push(dashCreation);
       } else {
-        let dashCreation = {"dashboard": {name: existingDash.title, status: "Success"}}
-        runResult.push(dashCreation);
+        for (let w of newDash.widgets) {
+          if (w.presentation.drilldown_dashboard_id && w.presentation.drilldown_dashboard_id !== null) {
+            w.presentation.drilldown_dashboard_id = newDash.id;
+          }
+        }
+        let updatedDash = await this.updateFacetLink(newDash);
+        if (updatedDash == null) {
+          let dashCreation = {"dashboard": {name: existingDash.title, status: "Partial Success", reason: 'Facet links missing.'}};
+          runResult.push(dashCreation);
+        } else {
+          let dashCreation = {"dashboard": {name: existingDash.title, status: "Success"}};
+          runResult.push(dashCreation);
+        }
       }
     }
 
@@ -328,6 +363,17 @@ export default class Dashboard extends React.Component {
     )
   }
 
+  getContentColor = (dStatus) => {
+    switch (dStatus) {
+      case "Success":
+        return {color: 'green'};
+      case "Partial Success":
+        return {color: 'orange'};
+      case "Failed":
+        return {color: 'red'};
+    }
+  }
+
   renderLog() {
     const { dashStatus, displayLog } = this.state;
 
@@ -344,7 +390,7 @@ export default class Dashboard extends React.Component {
                   <Segment>
                     <List>
                     <List.Item>
-                      <List.Header style={d.dashboard.status == "Success" ? {color: 'green'} : {color: 'red'}}>Dashboard: {d.dashboard.name} - {d.dashboard.status}</List.Header>
+                      <List.Header style={this.getContentColor(d.dashboard.status)}>Dashboard: {d.dashboard.name} - {d.dashboard.status} {d.dashboard.reason ? - d.dashboard.reason : null}</List.Header>
                     </List.Item>
                     </List>
                   </Segment>
