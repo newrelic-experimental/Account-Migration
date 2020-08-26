@@ -10,6 +10,15 @@ UI to move entities between different New Relic accounts. Currently supports the
 * Labels
 * Notification Channels
 
+## Usage
+Choose one or more entities to move or track progress of what has been moved between accounts.
+
+![Summary](screenshots/home.png)
+
+View a run log after each move (click of the button) to check migration results.
+
+![Log](screenshots/log.png)
+
 ## What do you need to make this work?
 
 * Admin API keys for both source and destination accounts
